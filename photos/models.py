@@ -37,4 +37,9 @@ class Image(models.Model):
     @classmethod
     def filter_images_by_location(cls,id):
         images_by_location = cls.objects.filter(image_location_id = id) 
-        return images_by_location    
+        return images_by_location 
+
+    @classmethod
+    def search_image(cls,category):
+        photos = cls.objects.filter(image_category = category)
+        return photos       
