@@ -27,4 +27,14 @@ class Image(models.Model):
     image_name = models.CharField(max_length=40)
     image_description = models.TextField()
     image_location = models.ForeignKey(Location)
-    image_category = models.ForeignKey(Category)                  
+    image_category = models.ForeignKey(Category)  
+
+    @classmethod
+    def get_images(cls):
+        all_images = cls.objects.all()
+        return all_images
+
+    @classmethod
+    def filter_images_by_location(cls,id):
+        images_by_location = cls.objects.filter(image_location_id = id) 
+        return images_by_location    
