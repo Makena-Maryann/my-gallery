@@ -5,13 +5,55 @@
 
 <div class="container">
  <div class="row">
-   <h2>View photos by location:</h2> 
+   <div class="col-md-6">
+    <h2 class="colors">View photos by location:</h2>
+    {% for location in locations %}
+        <a href="/location/{{ location.id}}" class="available">
+         {{location.name}},
+        </a>
+    {% endfor %} 
+   </div>
+   <div class="col-md-6">
+     <h2 class="colors">Categories:</h2>
+     {% for category in categories %}
+       <h4 class="available">{{category.name}},</h4>
+     {% endfor %}
+   </div>
  </div>
  <div class="row">
    {% for photo in photos %}
    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-6">
-      <img src="{{photo.image.url}}" class="img-responsive" alt="Image">
-      <h2> {{ photo.image_name }} </h2>
+      <!-- Button trigger modal -->
+<a data-toggle="modal" data-target="#{{photo.id}}">
+  <img src="{{photo.image.url}}" class="img-responsive" alt="Image">
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="{{photo.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title colors" id="exampleModalLongTitle">{{ photo.image_name }}</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="{{photo.image.url}}"  class="img-responsive" alt="">
+        
+        <h3>{{photo.image_description}}</h3>
+        
+        <h4><span class="colors"> Category </span>: {{photo.image_category.name}}</h4>
+        
+        <h4><span class="colors">Location</span>: {{photo.image_location.name}}</h4>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
    </div>
  
    {% empty %}
@@ -22,3 +64,16 @@
  </div>
 </div>
 {% endblock %}
+
+
+<!-- {% for photo in photos %}
+<div class="col-xs-6 col-sm-6 col-md-4 col-lg-6">
+   <img src="{{photo.image.url}}" class="img-responsive" alt="Image">
+   <h2> {{ photo.image_name }} </h2>
+</div>
+
+{% empty %}
+ <div class="col-xs-6 col-sm-6 col-md-4 col-lg-6">
+    <h2> There are No Images </h2>
+ </div> 
+{% endfor %}  -->
