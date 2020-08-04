@@ -1,0 +1,26 @@
+{%extends 'all-news/base.html'%} 
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    {% if photos%}
+      <h2>Found {{ photos|length }} photos for the {{message}} category</h2>
+    {% else %}
+      <h2> Found 0 photos for the {{message}} category</h2>
+    {% endif %}
+
+  </div>
+
+  <div class="row">
+
+  {% if photos %}
+    {% for photo in photos %}
+      <div class="col-sm-6 col-md-4">
+          <img src="{{photo.image.url}}" class="img-responsive" alt="Image">
+          <h1>{{photo.image_name}}</h1>
+      </div>
+    {% endfor %}
+  {% endif %}
+  </div>
+</div>
+{% endblock %}
