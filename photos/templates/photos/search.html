@@ -1,4 +1,4 @@
-{%extends 'all-news/base.html'%} 
+{%extends 'photos/base.html'%} 
 {% block content %}
 <div class="container">
 
@@ -17,7 +17,6 @@
     {% for photo in photos %}
       <div class="col-sm-6 col-md-4">
           <img src="{{photo.image.url}}" class="img-responsive" alt="Image">
-          <h1>{{photo.image_name}}</h1>
       </div>
     {% endfor %}
   {% endif %}

@@ -1,0 +1,21 @@
+body {
+
+ font-family: 'Grenze Gotisch', cursive;
+}
+
+.available {
+ display: inline-block;
+ font-size: 1.5em;
+ text-transform: capitalize;
+ color: black;
+}
+
+.naming {
+ font-size: 2em;
+ color: rgb(14, 255, 14);
+ font-family: 'Ranchers', cursive;
+}
+
+.colors {
+ color: limegreen;
+}
