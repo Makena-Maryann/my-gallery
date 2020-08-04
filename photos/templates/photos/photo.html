@@ -1,0 +1,29 @@
+{%extends 'all-news/base.html'%}
+
+ {% block content %}
+
+ <div class="container">
+
+   <div class="row">
+     <img src="{{photo.image.url}}"  class="img-responsive" alt="">
+   </div>
+
+   <div class="row">
+     <h1 class="text-center">{{photo.image_name}}</h1>
+   </div>
+
+   <div class="row">
+     <p>{{photo.image_description}}</p>
+   </div>
+
+   <div class="row">
+     <p>Category: {{photo.image_category.name}}</p>
+   </div>
+
+   <div class="row">
+    <p>Taken at: {{photo.image_location.name}}</p>
+   </div>
+
+ </div>
+
+ {% endblock %}
