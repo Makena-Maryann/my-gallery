@@ -8,7 +8,7 @@
  <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="{% url 'allImages' %}">Galleria</a>
+      <a class="navbar-brand naming" href="{% url 'allImages' %}">Galleria</a>
     </div>
     <div class="col-sm-4 col-md-4 navbar-right">
 
@@ -22,6 +22,11 @@
         </div>
 
       </form>
+    </div>
+    <div class="col-sm-4 col-md-6">
+      <ul class="nav navbar-nav">
+        <li><a href="{% url 'allImages' %}" class="naming">Home</a></li>
+      </ul>
     </div>
   </div>
 </nav> 
